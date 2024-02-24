@@ -35,12 +35,13 @@ nav {
 }
 
 .img-logo {
-    
     width: 40px;
     height: 40px;
 }
 
 .logo-div {
+    grid-column: 1/2;
+    grid-row: 1/2;
     display: flex;
     gap: 5px;
     align-items: center;
@@ -48,12 +49,11 @@ nav {
 
 .conteiner-nav {
     display: grid;
-    gap: 5%;
     margin: 0px 20px;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
-    
+    box-sizing: border-box;
 }
 
 
@@ -67,29 +67,34 @@ nav {
     display: none;
     align-items: center;
     justify-content: space-around;
-    flex-grow: 1;
-    grid-column: 1/3;
-    top: -100%;
-    transition: top 5s ease-in-out;
-}
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
 
-.menu-icon {
+}
+.conteiner-menu-icon {
+    width: 100%;
+    height: 100%;
     display: flex;
     cursor: pointer;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    justify-content: center;
+}
+.menu-icon {
     border: none;
     background: none;
     font-size: 24px;
-    right: 0;
-    color: antiquewhite;
-  }
+    position: relative;
 
-  .menu-icon:hover + .conteiner-nav-links,
-  .conteiner-nav-links:hover .conteiner-nav-links {
+  }
+@media (max-width: 799px) {
+    
+ .conteiner-menu-icon:hover + .conteiner-nav-links,
+  .conteiner-menu-icon + .conteiner-nav-links:hover {
     display: flex;
     flex-direction: column;
-    top: 0;
     }
-  
+}  
 
 
   .conteiner-nav-links a {
@@ -99,6 +104,8 @@ nav {
   @media (min-width: 800px) {
     .conteiner-nav-links {
       display: flex;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
     }
     .menu-icon {
         display: none;
